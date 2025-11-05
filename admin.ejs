@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — Alfox.ai</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <p><a href="/admin/logout">Logout</a></p>
+
+    <h2>Create Certificate</h2>
+    <form action="/admin/create" method="post">
+      <input name="cert_id" placeholder="Certificate ID (optional)">
+      <input name="name" placeholder="Full name" required>
+      <input name="project" placeholder="Project title" required>
+      <input name="start_date" placeholder="Start date (e.g. 01 Oct 2025)">
+      <input name="end_date" placeholder="End date">
+      <input name="issue_date" placeholder="Issue date">
+      <input name="signature" placeholder="Signature text (optional)">
+      <textarea name="notes" placeholder="Notes (optional)"></textarea>
+      <button>Create</button>
+    </form>
+
+    <h2>Existing Certificates</h2>
+    <table>
+      <tr><th>ID</th><th>Name</th><th>Project</th><th>Issue Date</th><th>Actions</th></tr>
+      <% certs.forEach(c => { %>
+      <tr>
+        <td><%= c.cert_id %></td>
+        <td><%= c.name %></td>
+        <td><%= c.project %></td>
+        <td><%= c.issue_date %></td>
+        <td>
+          <form action="/admin/delete" method="post" style="display:inline-block;"><input type="hidden" name="id" value="<%= c.id %>"><button>Delete</button></form>
+          <a href="/cert/<%= c.cert_id %>">View</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
+</body>
+</html>

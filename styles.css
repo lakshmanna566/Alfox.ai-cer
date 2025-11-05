@@ -1,0 +1,15 @@
+body { font-family: 'Times New Roman', Times, serif; background: #fff; color: #111; margin:0 }
+.container { max-width: 1000px; margin: 30px auto; padding: 20px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08) }
+.top { text-align:center; padding: 20px }
+.logo { height: 60px }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 16px }
+.card { display: block; padding: 12px; border: 1px solid #eee; text-decoration:none; color: inherit }
+.cert-wrap { padding:40px; display:flex; justify-content:center }
+.cert-card { width: 820px; border: 12px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.08); padding: 40px; background: linear-gradient(180deg, #fff, #fafafa) }
+.cert-logo { height: 80px }
+.cert-name { font-size: 40px; margin: 10px 0 }
+.sig-wrap { display:flex; align-items:center; margin-top:30px }
+.sig img { height: 60px; margin-right: 16px }
+.btn { display:inline-block; padding:8px 12px; margin-right:8px; background:#111; color:#fff; text-decoration:none }
+input, textarea { display:block; margin:8px 0; padding:8px; width:100%; box-sizing:border-box }
+.error { color: red }

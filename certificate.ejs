@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Certificate — <%= cert.name %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="cert-wrap">
+    <div class="cert-card">
+      <img src="/img/logo.png" class="cert-logo">
+      <h2>Certificate of Completion</h2>
+      <p class="cert-body">This is to certify that</p>
+      <h1 class="cert-name"><%= cert.name %></h1>
+      <p class="cert-body">has successfully completed the internship on</p>
+      <p class="cert-project"><strong><%= cert.project %></strong></p>
+      <p>Duration: <%= cert.start_date %> — <%= cert.end_date %></p>
+      <p>Issue Date: <%= cert.issue_date %></p>
+
+      <div class="sig-wrap">
+        <div class="sig"> <img src="/img/sign.png" alt="signature"> </div>
+        <div class="sig-text">Authorized Signatory<br>Alfox.ai</div>
+      </div>
+
+      <div class="cert-actions">
+        <a class="btn" href="/cert/<%= cert.cert_id %>/pdf">Download PDF</a>
+        <a class="btn" href="/">Back to list</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

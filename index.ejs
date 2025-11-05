@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alfox.ai — Internship Certificates</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="top">
+    <img src="/img/logo.png" alt="Alfox.ai" class="logo">
+    <h1>Alfox.ai Internship Certificates</h1>
+  </header>
+
+  <main class="container">
+    <section class="search">
+      <form action="/verify" method="get">
+        <input name="cert" placeholder="Enter Certificate ID to verify (e.g. ALX-...)" />
+        <button>Verify</button>
+      </form>
+    </section>
+
+    <section class="list">
+      <% if (certs.length === 0) { %>
+        <p>No certificates yet. Admins can add via <a href="/admin">Admin Dashboard</a>.</p>
+      <% } %>
+      <div class="grid">
+        <% certs.forEach(c => { %>
+          <a class="card" href="/cert/<%= c.cert_id %>">
+            <div class="card-name"><%= c.name %></div>
+            <div class="card-meta"><%= c.project %> — <%= c.issue_date %></div>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <%= new Date().getFullYear() %> Alfox.ai</footer>
+</body>
+</html>

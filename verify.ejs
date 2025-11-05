@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Verify Certificate</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Verify Certificate</h1>
+    <form action="/verify" method="get">
+      <input name="cert" placeholder="Certificate ID">
+      <button>Verify</button>
+    </form>
+
+    <% if (result === null) { %>
+      <p>Enter a certificate ID to verify.</p>
+    <% } else if (!result) { %>
+      <p>Not found. This certificate ID does not exist.</p>
+    <% } else { %>
+      <p>Certificate <strong><%= result.cert_id %></strong> is valid for <strong><%= result.name %></strong> (Project: <%= result.project %> — Issue Date: <%= result.issue_date %>).</p>
+      <p><a href="/cert/<%= result.cert_id %>">View Certificate</a></p>
+    <% } %>
+  </div>
+</body>
+</html>
